@@ -76,7 +76,11 @@ namespace Web.Pages.Cuenta
         {
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
-            await HttpContext.SignInAsync(principal);
+            // await HttpContext.SignInAsync(principal);
+            await HttpContext.SignInAsync(
+     CookieAuthenticationDefaults.AuthenticationScheme,
+     principal
+ );
         }
     }
 }
